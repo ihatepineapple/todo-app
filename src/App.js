@@ -13,7 +13,8 @@ import './assets/stylesheets/styles.css';
 function App() {
   const [ todoList, setTodoList ] = useState(data);
 
-
+  
+  
   const handleToggleComplete = (id) => {
     let mapped = todoList.map(task => {
       return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
@@ -21,11 +22,26 @@ function App() {
     setTodoList(mapped);
   }
 
+  const deleteItem = (id) => {
+    // gets id of the button triggered
+    const index = todoList.map(todo => todo.id).indexOf(Number(id))
+    // finds index of that id
+
+    const updatedList = [...todoList];
+    // splices array .splice(index, 1)
+    updatedList.splice(index, 1)
+    
+    // sets new array as state
+    setTodoList(updatedList)
+  }
+
+
+
   return (
     <div className="App">
 
             <Header />
-            <TodoList todoList={todoList} handleToggleComplete={handleToggleComplete}/>
+            <TodoList todoList={todoList} handleToggleComplete={handleToggleComplete} deleteItem={deleteItem}/>
 
     </div>
   );
