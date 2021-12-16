@@ -6,7 +6,7 @@ function TodoList({todoList, handleToggleComplete, deleteItem}) {
         <div>
             {todoList.map(todo => {
                return (
-                   <ToDo todo={todo} handleToggleComplete={handleToggleComplete} deleteItem={deleteItem}/>
+                   <ToDo key={todo.id} todo={todo} handleToggleComplete={handleToggleComplete} deleteItem={deleteItem}/>
                )
            })}
             

@@ -23,15 +23,9 @@ function App() {
   }
 
   const deleteItem = (id) => {
-    // gets id of the button triggered
     const index = todoList.map(todo => todo.id).indexOf(Number(id))
-    // finds index of that id
-
     const updatedList = [...todoList];
-    // splices array .splice(index, 1)
     updatedList.splice(index, 1)
-    
-    // sets new array as state
     setTodoList(updatedList)
   }
 

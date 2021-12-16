@@ -9,6 +9,7 @@ const ToDo = ({todo, handleToggleComplete, deleteItem}) => {
 
     const handleDelete = (event) => {
         event.preventDefault()
+        event.stopPropagation()
         deleteItem(event.currentTarget.parentNode.id)
     }
 
