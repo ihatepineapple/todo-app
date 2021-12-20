@@ -12,6 +12,8 @@ import './assets/stylesheets/styles.css';
 
 function App() {
   const [ todoList, setTodoList ] = useState(data);
+  const [ filteredTodoList, setFilteredTodoList ] = useState();
+  const [ filterState, setFilterState ] = useState(false);
 
   
   
@@ -29,8 +31,30 @@ function App() {
     setTodoList(updatedList)
   }
 
-  const handleFilterActive = () => {
-    console.log("hey")
+  const handleFilter = (event) => {
+    const stateCopy = [...todoList];
+    switch (event.target.id) {
+      case "active":
+        const activeList = stateCopy.filter(task => !task.complete)
+        console.log(activeList);
+        setFilteredTodoList(activeList);
+        setFilterState(true)
+        break;
+
+      case "complete":
+        const completeList = stateCopy.filter(task => task.complete)
+        console.log(completeList);
+        setFilteredTodoList(completeList);
+        setFilterState(true)
+        break;
+
+      default:
+        console.log(todoList);
+        setFilterState(false)
+        return todoList;
+
+      }
+
 
   }
 
@@ -40,6 +64,8 @@ function App() {
     });
     setTodoList(deleteCompleteList);
   }
+
+
 
   const addTask = (userInput) => {
     let copyList = [...todoList];
@@ -52,7 +78,7 @@ function App() {
 
             <Header />
             <Input addTask={addTask} />
-            <TodoList todoList={todoList} handleFilterActive={handleFilterActive} handleToggleComplete={handleToggleComplete} handleDeleteComplete={handleDeleteComplete} deleteItem={deleteItem}/>
+            <TodoList todoList={filterState ? filteredTodoList : todoList} handleFilter={handleFilter} handleToggleComplete={handleToggleComplete} handleDeleteComplete={handleDeleteComplete} deleteItem={deleteItem}/>
 
     </div>
   );
