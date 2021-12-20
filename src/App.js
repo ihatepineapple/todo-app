@@ -29,13 +29,18 @@ function App() {
     setTodoList(updatedList)
   }
 
-
+  const handleDeleteComplete = () => {
+    let filtered = todoList.filter(task => {
+      return !task.complete;
+    });
+    setTodoList(filtered);
+  }
 
   return (
     <div className="App">
 
             <Header />
-            <TodoList todoList={todoList} handleToggleComplete={handleToggleComplete} deleteItem={deleteItem}/>
+            <TodoList todoList={todoList} handleToggleComplete={handleToggleComplete} handleDeleteComplete={handleDeleteComplete} deleteItem={deleteItem}/>
 
     </div>
   );
