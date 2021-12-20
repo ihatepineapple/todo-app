@@ -3,7 +3,7 @@ import data from './data.json';
 
 import Header from './components/todo-header';
 import TodoList from './components/todo-list';
-// import Input from './components/todo-input';
+import Input from './components/todo-input';
 
 import './App.css';
 import './assets/stylesheets/styles.css';
@@ -29,18 +29,30 @@ function App() {
     setTodoList(updatedList)
   }
 
+  const handleFilterActive = () => {
+    console.log("hey")
+
+  }
+
   const handleDeleteComplete = () => {
-    let filtered = todoList.filter(task => {
+    let deleteCompleteList = todoList.filter(task => {
       return !task.complete;
     });
-    setTodoList(filtered);
+    setTodoList(deleteCompleteList);
+  }
+
+  const addTask = (userInput) => {
+    let copyList = [...todoList];
+    copyList = [...copyList, { id: todoList.length + 1, task: userInput, complete: false }];
+    setTodoList(copyList);
   }
 
   return (
     <div className="App">
 
             <Header />
-            <TodoList todoList={todoList} handleToggleComplete={handleToggleComplete} handleDeleteComplete={handleDeleteComplete} deleteItem={deleteItem}/>
+            <Input addTask={addTask} />
+            <TodoList todoList={todoList} handleFilterActive={handleFilterActive} handleToggleComplete={handleToggleComplete} handleDeleteComplete={handleDeleteComplete} deleteItem={deleteItem}/>
 
     </div>
   );

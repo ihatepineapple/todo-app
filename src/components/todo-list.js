@@ -1,7 +1,7 @@
 import React from 'react';
 import ToDo from './todo';
 
-function TodoList({todoList, handleToggleComplete, deleteItem, handleDeleteComplete}) {
+function TodoList({todoList, handleToggleComplete, deleteItem, handleDeleteComplete, handleFilterActive}) {
     return (
         <div>
             {todoList.map(todo => {
@@ -15,7 +15,7 @@ function TodoList({todoList, handleToggleComplete, deleteItem, handleDeleteCompl
 
                <div>
                    <p>All</p>
-                   <p>Active</p>
+                   <a href="#" onClick={handleFilterActive}>Active</a>
                    <p>Complete</p>
 
                </div>

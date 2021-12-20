@@ -2,45 +2,23 @@ import React, { useEffect, useState } from 'react';
 
 
 
-function Input() {
-    const [todoList, setTodoList] = useState([]);
-    const [todo, setTodo] = useState("");
+function Input({ addTask })  {
+    const [ userInput, setUserInput ] = useState('');
 
-    // const todoInput = document.getElementById('todo-input');
-
-    
-    useEffect(() => {
-        document
-        .getElementById("todo-input")
-        .addEventListener("keydown", function (event) {
-            if (event.code === "Enter" || event.code === "NumpadEnter") {
-                event.preventDefault();
-                getInput();
-            }
-        });
-    }, []);
-
-    function getInput() {
-        const value = document.getElementById("todo-input").value 
-        console.log(value)
-        setTodo(value)
-
-        const todoArray = [...todoList]
-
-        todoArray.push(todo)
-        setTodoList(todoArray)
-        console.log(todo)
-        console.log(todoList)
-
+    const handleChange = (event) => {
+        setUserInput(event.currentTarget.value)
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        addTask(userInput);
+        setUserInput("");
+    }
     return (
-        <div>
-            <form>
-                <input type="text" id="todo-input" />
-            </form>
-        </div>
-    )
-}
+        <form onSubmit={handleSubmit}>
+            <input value={userInput} type="text" onChange={handleChange} placeholder="Create a new todo..."/>
+        </form>
+    );
+};
 
 export default Input
