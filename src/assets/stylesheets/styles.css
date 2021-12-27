@@ -10,18 +10,16 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin: 0;
-  overflow-x: hidden;
-  max-width: 100%;
+  padding: 0;
+}
+
+.app {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  position: relative;
 }
 
 .title__container, .filters {
@@ -37,34 +35,17 @@ body {
           justify-content: space-between;
 }
 
-header {
-  max-width: 100%;
-}
-
-.header_image {
-  height: 200px;
-  width: 100%;
-  position: relative;
-}
-
-.header_image .title__container {
-  position: absolute;
-  top: 2%;
-  width: calc(100% - 36px);
-}
-
-.header_image .title {
+.title {
   text-transform: uppercase;
   font-size: 28px;
   letter-spacing: 12px;
   color: var(--elements-bg-color);
 }
 
-.input {
-  position: absolute;
+.app_elements {
+  position: relative;
   top: 12%;
   margin: 18px;
-  width: calc(100% - 36px);
 }
 
 .input__form {
@@ -94,13 +75,9 @@ header {
 
 .list {
   background-color: var(--elements-bg-color);
-  margin: 18px;
   -webkit-box-shadow: var(--shadow-outline);
           box-shadow: var(--shadow-outline);
   border-radius: 5px;
-  position: absolute;
-  top: 20%;
-  width: calc(100% - 36px);
 }
 
 .todo_list {
@@ -115,7 +92,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -147,6 +123,12 @@ header {
 .strike {
   text-decoration: line-through;
   color: var(--task-complete-color);
+}
+
+.filters {
+  background-color: var(--elements-bg-color);
+  -webkit-box-shadow: var(--shadow-outline);
+          box-shadow: var(--shadow-outline);
 }
 
 .cb__container {

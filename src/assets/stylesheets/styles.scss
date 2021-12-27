@@ -18,12 +18,18 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0;
-    overflow-x: hidden;
-    max-width: 100%;
+    padding: 0;
+}
+
+.app {
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    position: relative;
+
+
 }
 
 .title__container, .filters {
@@ -33,39 +39,23 @@ body {
     justify-content: space-between;
 }
 
-header {
-    max-width: 100%; //container element sets limits of horizontal scroll
+
+.title {
+    text-transform: uppercase;
+    font-size: 28px;
+    letter-spacing: 12px;
+    color: var(--elements-bg-color);
 }
 
-.header_image {
-    height: 200px; 
-    width: 100%;
+
+.app_elements {
     position: relative;
-
-
-    .title__container {
-        position: absolute;
-        top: 2%;
-        width: calc(100% - 36px); // prevents horizontal scroll
-
-    }
-
-    .title {
-        text-transform: uppercase;
-        font-size: 28px;
-        letter-spacing: 12px;
-        color: var(--elements-bg-color);
-    }
-
-
+    top: 12%;   
+    margin: 18px;
 }
 
 
 .input {
-    position: absolute;
-    top: 12%;   
-    margin: 18px;
-    width: calc(100% - 36px); // prevents horizontal scroll
     
     &__form {
         border-radius: 4px;
@@ -92,13 +82,8 @@ header {
 
 .list {
     background-color: var(--elements-bg-color);
-    margin: 18px;
     box-shadow: var(--shadow-outline);
     border-radius: 5px;
-    position: absolute;
-    top: 20%;
-    width: calc(100% - 36px)
-
 }
 
 .todo_list {
@@ -107,10 +92,8 @@ header {
 }
 
 .inline_task {
-    // padding: 8px;
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: space-between;
     border-bottom: 1px solid;
     border-bottom-color: var(--cb-border);
@@ -119,7 +102,6 @@ header {
         display: flex;
         align-items: center;
         padding: 4px 14px;
-
     }
 }
 
@@ -127,7 +109,6 @@ header {
     cursor: pointer;
     justify-self: flex-end;
     padding-right: 8px;
-
 }
 
 
@@ -139,6 +120,11 @@ header {
 .strike {
     text-decoration: line-through;
     color: var(--task-complete-color);
+}
+
+.filters {
+    background-color: var(--elements-bg-color);
+    box-shadow: var(--shadow-outline);
 }
 
 

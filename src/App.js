@@ -7,6 +7,7 @@ import Form from "./components/InputForm.js";
 import FilterButton from "./components/FilterButton.js";
 
 import "./assets/stylesheets/styles.css";
+import background from "../src/assets/images/bg-mobile-light.jpg";
 
 const FILTER_MAP = {
   All: () => true,
@@ -67,35 +68,34 @@ function App(props) {
 
   const tasksNoun = taskList.length !== 1 ? "items" : "item";
   const headingText = `${taskList.length} ${tasksNoun} left`;
-  
+
   const handleDeleteComplete = () => {
-    const updatedTasks = tasks.filter((task) => !task.complete)
+    const updatedTasks = tasks.filter((task) => !task.complete);
     setTasks(updatedTasks);
-  }
+  };
 
   return (
-    <div className="todoapp stack-large">
+    <div className="app" style={{ backgroundImage: `url(${background})` }}>
       <Header />
-      <Form addTask={addTask} />
-    
 
-      <section className="list">
-        <ul className="todo_list">{taskList}</ul>
-      </section>
+      <section className="app_elements">
+        <Form addTask={addTask} />
+        <article className="list">
+          <ul className="todo_list">{taskList}</ul>
+        </article>
 
-
-
-      <section className="filters">
-        <p className="filters__info">{headingText}</p>
-        <div className="filters__button_group">{filterList}</div>
-        <button
-          type="button"
-          className="filter__btn"
-          aria-pressed="false"
-          onClick={handleDeleteComplete}
-        >
-          Clear Complete
-        </button>
+        <article className="filters">
+          <p className="filters__info">{headingText}</p>
+          <div className="filters__button_group">{filterList}</div>
+          <button
+            type="button"
+            className="filter__btn"
+            aria-pressed="false"
+            onClick={handleDeleteComplete}
+          >
+            Clear Complete
+          </button>
+        </article>
       </section>
     </div>
   );
