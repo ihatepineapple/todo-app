@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
 import Header from "./components/Header.js";
-import Todo from "./components/todo.js";
-import Form from "./components/form.js";
+import Todo from "./components/TodoElement.js";
+import Form from "./components/InputForm.js";
 import FilterButton from "./components/FilterButton.js";
 
 import "./assets/stylesheets/styles.css";
@@ -67,19 +67,22 @@ function App(props) {
 
   const tasksNoun = taskList.length !== 1 ? "items" : "item";
   const headingText = `${taskList.length} ${tasksNoun} left`;
-
-  function handleDeleteComplete() {
-    console.log("job for later");
+  
+  const handleDeleteComplete = () => {
+    const updatedTasks = tasks.filter((task) => !task.complete)
+    setTasks(updatedTasks);
   }
 
   return (
     <div className="todoapp stack-large">
       <Header />
       <Form addTask={addTask} />
+    
 
       <ul className="todo-list">{taskList}</ul>
 
-      <div className="filters">
+
+      <section className="filters">
         <p className="filters__info">{headingText}</p>
         <div className="filters__button_group">{filterList}</div>
         <button
@@ -90,7 +93,7 @@ function App(props) {
         >
           Clear Complete
         </button>
-      </div>
+      </section>
     </div>
   );
 }
