@@ -1,24 +1,19 @@
 import React from "react";
+import CustomCheckbox from "./CustomCheckbox.js";
+
+import { ReactComponent as DeleteIcon } from "../assets/icons/icon-cross.svg";
 
 function Todo(props) {
+    console.log(props)
   return (
     <li className="todo stack-small">
-      <div className="c-cb">
-        <input
-          id={props.id}
-          type="checkbox"
-          defaultChecked={props.completed}
-          onChange={() => props.toggleTaskCompleted(props.id)}
-        />
-        <label className="todo-label" htmlFor="todo-0">
-          {props.name}
-        </label>
+      <div className="inline_task">
+        <CustomCheckbox data={props} />
+
+        <p className={props.completed ? "strike" : ""}>{props.name}</p>
+        <DeleteIcon height="18px" onClick={() => props.deleteTask(props.id)} />
       </div>
-      <div className="btn-group">
-        <button type="button" className="btn btn__danger" onClick={() => props.deleteTask(props.id)}>
-          Delete <span className="visually-hidden">Eat</span>
-        </button>
-      </div>
+
     </li>
   );
 }
