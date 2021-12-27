@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
+import Header from "./components/Header.js";
 import Todo from "./components/todo.js";
 import Form from "./components/form.js";
 import FilterButton from "./components/FilterButton.js";
+
+import "./assets/stylesheets/styles.css";
 
 const FILTER_MAP = {
   All: () => true,
@@ -62,24 +65,32 @@ function App(props) {
     setTasks([...tasks, newTask]);
   }
 
-  const tasksNoun = taskList.length !== 1 ? "tasks" : "task";
-  const headingText = `${taskList.length} ${tasksNoun} remaining`;
+  const tasksNoun = taskList.length !== 1 ? "items" : "item";
+  const headingText = `${taskList.length} ${tasksNoun} left`;
+
+  function handleDeleteComplete() {
+    console.log("job for later");
+  }
 
   return (
     <div className="todoapp stack-large">
-      <h1>Todo App</h1>
+      <Header />
       <Form addTask={addTask} />
 
-      <div className="filters btn-group stack-exception">{filterList}</div>
+      <ul className="todo-list">{taskList}</ul>
 
-      <h2 id="list-heading">{headingText}</h2>
-      <ul
-        role="list"
-        className="todo-list stack-large stack-exception"
-        aria-labelledby="list-heading"
-      >
-        {taskList}
-      </ul>
+      <div className="filters">
+        <p className="filters__info">{headingText}</p>
+        <div className="filters__button_group">{filterList}</div>
+        <button
+          type="button"
+          className="filter__btn"
+          aria-pressed="false"
+          onClick={handleDeleteComplete}
+        >
+          Clear Complete
+        </button>
+      </div>
     </div>
   );
 }
