@@ -1,21 +1,21 @@
 [{
     "id": 1,
-    "task": "Give dog a bath",
+    "name": "Give dog a bath",
     "complete": true
   }, {
     "id": 2,
-    "task": "Do laundry",
+    "name": "Do laundry",
     "complete": true
   }, {
     "id": 3,
-    "task": "Vacuum floor",
+    "name": "Vacuum floor",
     "complete": false
   }, {
     "id": 4,
-    "task": "Feed cat",
+    "name": "Feed cat",
     "complete": true
   }, {
     "id": 5,
-    "task": "Change light bulbs",
+    "name": "Change light bulbs",
     "complete": false
   }]
