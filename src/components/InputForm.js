@@ -15,12 +15,12 @@ function Form(props) {
       
     
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="input">
       
       <input
         type="text"
         id="new-todo-input"
-        className="input input__lg"
+        className="input__form"
         name="text"
         autoComplete="off"
         placeholder="Enter a task..."
