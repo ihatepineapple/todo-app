@@ -7,6 +7,7 @@ function Todo(props) {
         <input id={props.id} type="checkbox" defaultChecked={props.completed} />
         <label className="todo-label" htmlFor="todo-0">
           {props.name}
+          {props.id}
         </label>
       </div>
       <div className="btn-group">
