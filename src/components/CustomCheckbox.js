@@ -1,19 +1,18 @@
 import React from "react";
 
 function CustomCheckbox(props) {
-//   console.log(props.data);
 
   return (
-    <div id={props.data.id}>
-      <label className="cb__container">
+    
+      <label className="cb__container" id={props.data.id}>
         <input
           type="checkbox"
           defaultChecked={props.data.completed}
           onChange={() => props.data.toggleTaskCompleted(props.data.id)}
         />
-        <span className="checkmark"></span>
+        <div className="checkmark"></div>
       </label>
-    </div>
+  
   );
 }
 

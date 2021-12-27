@@ -1,8 +1,10 @@
 :root {
   --bg-color: hsl(0, 0%, 98%);
   --elements-bg-color: white;
-  --text-color: hsl(200, 15, 8%);
+  --text-color: hsl(235, 19%, 35%);
+  --task-complete-color: hsl(233, 11%, 84%);
   --cb-border: hsl(236, 33%, 92%);
+  --shadow-outline: 0px 0px 10px lightgray;
 }
 
 body {
@@ -90,10 +92,61 @@ header {
   margin-right: 12px;
 }
 
+.list {
+  background-color: var(--elements-bg-color);
+  margin: 18px;
+  -webkit-box-shadow: var(--shadow-outline);
+          box-shadow: var(--shadow-outline);
+  border-radius: 5px;
+  position: absolute;
+  top: 20%;
+  width: calc(100% - 36px);
+}
+
+.todo_list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.inline_task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid;
+  border-bottom-color: var(--cb-border);
+}
+
+.inline_task__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 14px;
+}
+
 .btn__delete {
-  border: none;
-  background-color: transparent;
   cursor: pointer;
+  justify-self: flex-end;
+  padding-right: 8px;
+}
+
+.task {
+  font-size: 12px;
+  color: var(--text-color);
+}
+
+.strike {
+  text-decoration: line-through;
+  color: var(--task-complete-color);
 }
 
 .cb__container {
@@ -112,15 +165,15 @@ header {
 }
 
 .checkmark {
-  position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 18px;
+  width: 18px;
   background-color: var(--elements-bg-color);
   border: 1px solid;
   border-color: var(--cb-border);
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .cb__container input:checked ~ .checkmark {
@@ -133,33 +186,18 @@ header {
   display: none;
 }
 
-/* Show the checkmark when checked */
 .cb__container input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .cb__container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
+  left: 7px;
+  top: 4px;
+  width: 3px;
+  height: 7px;
   border: solid white;
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-}
-
-.inline_task {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.strike {
-  text-decoration: line-through;
 }
 /*# sourceMappingURL=styles.css.map */

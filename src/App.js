@@ -79,7 +79,10 @@ function App(props) {
       <Form addTask={addTask} />
     
 
-      <ul className="todo-list">{taskList}</ul>
+      <section className="list">
+        <ul className="todo_list">{taskList}</ul>
+      </section>
+
 
 
       <section className="filters">
