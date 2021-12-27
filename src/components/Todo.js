@@ -1,6 +1,6 @@
 import React from "react";
 
-function Todo(props) {
+export default function Todo(props) {
   return (
     <li className="todo stack-small">
       <div className="c-cb">
@@ -20,5 +20,3 @@ function Todo(props) {
     </li>
   );
 }
-
-export default Todo;

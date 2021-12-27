@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Todo from './components/todo';
+import Todo from './components/Todo.js';
+import Form from './components/Form.js';
 
 
 function App(props) {
