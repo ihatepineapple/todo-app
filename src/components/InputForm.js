@@ -16,14 +16,14 @@ function Form(props) {
   return (
     <div className="input">
       <form onSubmit={handleSubmit} className="input__form">
-      <div className="input__checkbox--notChecked"></div>
+        <div className="input__checkbox--notChecked"></div>
         <input
           type="text"
           id="new-todo-input"
           className="input__form_field"
           name="text"
           autoComplete="off"
-          placeholder="Enter a task..."
+          placeholder="Create a new todo..."
           value={name}
           onChange={handleChange}
         />

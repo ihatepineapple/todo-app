@@ -4,15 +4,19 @@
     --text-color: hsl(235, 19%, 35%);
     --task-complete-color: hsl(233, 11%, 84%);
     --cb-border: hsl(236, 33%, 92%);
-    --shadow-outline: 0px 0px 10px lightgray;
+    --shadow-outline: 0px 0px 26px lightgray;
+    --filter-info: hsl(236, 9%, 61%);
 
 }
 
 [data-theme="dark"] {
-    // --bg-color: hsl(207, 26%, 17%);
-    // --elements-bg-color: hsl(209, 23%, 22%);
-    // --text-color: white;
-
+    --bg-color: hsl(235, 21%, 11%);
+    --elements-bg-color: hsl(235, 24%, 19%);
+    --text-color: hsl(234, 39%, 85%);
+    --task-complete-color: hsl(234, 11%, 52%);
+    --cb-border: hsl(233, 14%, 35%);
+    --shadow-outline: 0px 0px 26px black;
+    --filter-info: hsl(236, 9%, 61%);
 }
 
 body {
@@ -44,14 +48,14 @@ body {
     text-transform: uppercase;
     font-size: 28px;
     letter-spacing: 12px;
-    color: var(--elements-bg-color);
+    color: white;
 }
 
 
 .app_elements {
-    position: relative;
-    top: 12%;   
+    position: relative; 
     margin: 18px;
+    margin-top: 0;
 }
 
 
@@ -65,10 +69,23 @@ body {
         align-items: center;
         
     }
-
+    
+    input[type=text]:focus {
+        outline: none;
+        
+    }
+    
+    input[type=text]::placeholder {
+        outline: none;
+        color: var(--filter-info);
+    }
+    
     &__form_field {
+        background-color: var(--elements-bg-color);
         border: none;
     }
+
+
 
     &__checkbox--notChecked {
         border-radius: 50%;
@@ -97,6 +114,7 @@ body {
     justify-content: space-between;
     border-bottom: 1px solid;
     border-bottom-color: var(--cb-border);
+    padding: 4px 0;
 
     &__info {
         display: flex;
@@ -108,7 +126,7 @@ body {
 .btn__delete {
     cursor: pointer;
     justify-self: flex-end;
-    padding-right: 8px;
+    padding-right: 18px;
 }
 
 
@@ -125,6 +143,29 @@ body {
 .filters {
     background-color: var(--elements-bg-color);
     box-shadow: var(--shadow-outline);
+    display: flex;
+    justify-content: center;
+}
+
+.filter__btn {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--filter-info);
+}
+
+.filter__btn:focus, 
+.filters__info:focus {
+    color: hsl(220, 98%, 61%); 
+}
+
+.filters__info {
+    padding: 2px 18px;
+    font-size: 12px;
+    color: var(--filter-info);
+    border: none;
+    background-color: transparent;
 }
 
 

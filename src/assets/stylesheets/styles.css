@@ -4,7 +4,18 @@
   --text-color: hsl(235, 19%, 35%);
   --task-complete-color: hsl(233, 11%, 84%);
   --cb-border: hsl(236, 33%, 92%);
-  --shadow-outline: 0px 0px 10px lightgray;
+  --shadow-outline: 0px 0px 26px lightgray;
+  --filter-info: hsl(236, 9%, 61%);
+}
+
+[data-theme="dark"] {
+  --bg-color: hsl(235, 21%, 11%);
+  --elements-bg-color: hsl(235, 24%, 19%);
+  --text-color: hsl(234, 39%, 85%);
+  --task-complete-color: hsl(234, 11%, 52%);
+  --cb-border: hsl(233, 14%, 35%);
+  --shadow-outline: 0px 0px 26px black;
+  --filter-info: hsl(236, 9%, 61%);
 }
 
 body {
@@ -39,13 +50,13 @@ body {
   text-transform: uppercase;
   font-size: 28px;
   letter-spacing: 12px;
-  color: var(--elements-bg-color);
+  color: white;
 }
 
 .app_elements {
   position: relative;
-  top: 12%;
   margin: 18px;
+  margin-top: 0;
 }
 
 .input__form {
@@ -60,7 +71,32 @@ body {
           align-items: center;
 }
 
+.input input[type=text]:focus {
+  outline: none;
+}
+
+.input input[type=text]::-webkit-input-placeholder {
+  outline: none;
+  color: var(--filter-info);
+}
+
+.input input[type=text]:-ms-input-placeholder {
+  outline: none;
+  color: var(--filter-info);
+}
+
+.input input[type=text]::-ms-input-placeholder {
+  outline: none;
+  color: var(--filter-info);
+}
+
+.input input[type=text]::placeholder {
+  outline: none;
+  color: var(--filter-info);
+}
+
 .input__form_field {
+  background-color: var(--elements-bg-color);
   border: none;
 }
 
@@ -97,6 +133,7 @@ body {
           justify-content: space-between;
   border-bottom: 1px solid;
   border-bottom-color: var(--cb-border);
+  padding: 4px 0;
 }
 
 .inline_task__info {
@@ -112,7 +149,7 @@ body {
 .btn__delete {
   cursor: pointer;
   justify-self: flex-end;
-  padding-right: 8px;
+  padding-right: 18px;
 }
 
 .task {
@@ -129,6 +166,33 @@ body {
   background-color: var(--elements-bg-color);
   -webkit-box-shadow: var(--shadow-outline);
           box-shadow: var(--shadow-outline);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.filter__btn {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--filter-info);
+}
+
+.filter__btn:focus,
+.filters__info:focus {
+  color: #3a7bfd;
+}
+
+.filters__info {
+  padding: 2px 18px;
+  font-size: 12px;
+  color: var(--filter-info);
+  border: none;
+  background-color: transparent;
 }
 
 .cb__container {

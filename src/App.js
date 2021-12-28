@@ -8,7 +8,8 @@ import Form from "./components/InputForm.js";
 import FilterButton from "./components/FilterButton.js";
 
 import "./assets/stylesheets/styles.css";
-import background from "../src/assets/images/bg-mobile-light.jpg";
+import bgLightMobile from "../src/assets/images/bg-mobile-light.jpg";
+// import bgDarkMobile from "../src/assets/images/bg-mobile-dark.jpg";
 
 const FILTER_MAP = {
   All: () => true,
@@ -20,7 +21,6 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function App(props) {
   const { breakpoints, currentBreakpoint } = props;
-  console.log(breakpoints, currentBreakpoint);
 
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState("All");
@@ -79,7 +79,12 @@ function App(props) {
   };
 
   return (
-    <div className="app" style={{ backgroundImage: `url(${background})` }}>
+    <div
+      className="app"
+      style={{
+        backgroundImage: `url(${bgLightMobile})`,
+      }}
+    >
       <Header />
 
       <section className="app_elements">
@@ -93,7 +98,7 @@ function App(props) {
                   <p className="filters__info">{headingText}</p>
                   <button
                     type="button"
-                    className="filter__btn"
+                    className="filters__info"
                     aria-pressed="false"
                     onClick={handleDeleteComplete}
                   >

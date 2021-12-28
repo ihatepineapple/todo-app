@@ -7,6 +7,14 @@ function Header() {
 
   function toggleDarkMode() {
     setDarkMode(!darkMode);
+
+    if (darkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else if (!darkMode) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    return darkMode;
   }
 
   return (
@@ -15,9 +23,9 @@ function Header() {
         <h1 className="title">Todo</h1>
         <div className="icon" onClick={toggleDarkMode}>
           {darkMode ? (
-            <LightModeIcon height="30px" fill="var(--elements-bg-color)" />
+            <DarkModeIcon height="30px" fill="white" />
           ) : (
-            <DarkModeIcon height="30px" fill="var(--elements-bg-color)" />
+            <LightModeIcon height="30px" fill="white" />
           )}
         </div>
       </div>
