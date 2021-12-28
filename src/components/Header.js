@@ -13,21 +13,22 @@ function Header() {
     } else if (!darkMode) {
       document.documentElement.setAttribute("data-theme", "light");
     }
-
-    return darkMode;
   }
 
   return (
     <header>
       <div className="title__container">
         <h1 className="title">Todo</h1>
-        <div className="icon" onClick={toggleDarkMode}>
-          {darkMode ? (
-            <DarkModeIcon height="30px" fill="white" />
-          ) : (
+
+        {darkMode ? (
+          <div className="icon" onClick={toggleDarkMode}>
             <LightModeIcon height="30px" fill="white" />
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="icon" onClick={toggleDarkMode}>
+            <DarkModeIcon height="30px" fill="white" />
+          </div>
+        )}
       </div>
     </header>
   );

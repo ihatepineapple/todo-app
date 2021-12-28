@@ -8,7 +8,7 @@ import Form from "./components/InputForm.js";
 import FilterButton from "./components/FilterButton.js";
 
 import "./assets/stylesheets/styles.css";
-import bgLightMobile from "../src/assets/images/bg-mobile-light.jpg";
+// import bgLightMobile from "../src/assets/images/bg-mobile-light.jpg";
 // import bgDarkMobile from "../src/assets/images/bg-mobile-dark.jpg";
 
 const FILTER_MAP = {
@@ -79,12 +79,7 @@ function App(props) {
   };
 
   return (
-    <div
-      className="app"
-      style={{
-        backgroundImage: `url(${bgLightMobile})`,
-      }}
-    >
+    <div className="app">
       <Header />
 
       <section className="app_elements">
