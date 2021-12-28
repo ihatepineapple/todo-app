@@ -7,12 +7,26 @@ import DATA from './data.json';
 
 
 import { BrowserRouter as Router } from "react-router-dom";
+import ReactBreakpoints from 'react-breakpoints';
+ 
+const breakpoints = {
+  mobile: 375,
+  mobileLandscape: 480,
+  tablet: 768,
+  tabletLandscape: 1024,
+  desktop: 1200,
+  desktopLarge: 1500,
+  desktopWide: 1920,
+}
 
 
 ReactDOM.render(
+<ReactBreakpoints breakpoints={breakpoints}>
   <Router>
     <App tasks={DATA} />
-  </Router>,
+  </Router>
+</ReactBreakpoints>,
+
 
   document.getElementById('root')
 );

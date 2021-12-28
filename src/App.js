@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
+import { withBreakpoints } from "react-breakpoints";
 
 import Header from "./components/Header.js";
 import Todo from "./components/TodoElement.js";
@@ -18,6 +19,9 @@ const FILTER_MAP = {
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function App(props) {
+  const { breakpoints, currentBreakpoint } = props;
+  console.log(breakpoints, currentBreakpoint);
+
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState("All");
 
@@ -81,24 +85,49 @@ function App(props) {
       <section className="app_elements">
         <Form addTask={addTask} />
         <article className="list">
-          <ul className="todo_list">{taskList}</ul>
+          <ul className="todo_list">
+            {taskList}
+            {breakpoints[currentBreakpoint] < breakpoints.mobileLandscape ? (
+              <li>
+                <div className="inline_task">
+                  <p className="filters__info">{headingText}</p>
+                  <button
+                    type="button"
+                    className="filter__btn"
+                    aria-pressed="false"
+                    onClick={handleDeleteComplete}
+                  >
+                    Clear Complete
+                  </button>
+                </div>
+              </li>
+            ) : (
+              ""
+            )}
+          </ul>
         </article>
 
         <article className="filters">
-          <p className="filters__info">{headingText}</p>
-          <div className="filters__button_group">{filterList}</div>
-          <button
-            type="button"
-            className="filter__btn"
-            aria-pressed="false"
-            onClick={handleDeleteComplete}
-          >
-            Clear Complete
-          </button>
+          {breakpoints[currentBreakpoint] < breakpoints.mobileLandscape ? (
+            <div className="filters__button_group">{filterList}</div>
+          ) : (
+            <div>
+              <p className="filters__info">{headingText}</p>
+              <div className="filters__button_group">{filterList}</div>
+              <button
+                type="button"
+                className="filter__btn"
+                aria-pressed="false"
+                onClick={handleDeleteComplete}
+              >
+                Clear Complete
+              </button>
+            </div>
+          )}
         </article>
       </section>
     </div>
   );
 }
 
-export default App;
+export default withBreakpoints(App);
