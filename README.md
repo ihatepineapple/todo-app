@@ -17,8 +17,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/todo-app-using-reactjs-hooks-qujqze7yE)
+- Live Site URL: [Add live site URL here](https://ias-todoapp.herokuapp.com/)
 ### Install
 
 Simply fork or clone this repository, install dependencies using `npm install` and run it by using `npm run start` 
