@@ -7,6 +7,7 @@
     --shadow-outline: 0px 0px 26px lightgray;
     --filter-info: hsl(236, 9%, 61%);
     --bg-image-mobile: url(../images/bg-mobile-light.jpg);
+    --bg-image: url(../images/bg-desktop-light.jpg)
 
 }
 
@@ -19,6 +20,8 @@
     --shadow-outline: 0px 0px 26px black;
     --filter-info: hsl(236, 9%, 61%);
     --bg-image-mobile: url(../images/bg-mobile-dark.jpg);
+    --bg-image: url(../images/bg-desktop-dark.jpg)
+
 
 }
 
@@ -37,8 +40,11 @@ body {
     background-color: var(--bg-color);
     position: relative;
 
-
-
+    &__elements {
+        position: relative; 
+        margin: 18px;
+        margin-top: 0;
+    }
 }
 
 .title__container, .filters {
@@ -54,13 +60,6 @@ body {
     font-size: 28px;
     letter-spacing: 12px;
     color: white;
-}
-
-
-.app_elements {
-    position: relative; 
-    margin: 18px;
-    margin-top: 0;
 }
 
 
@@ -150,6 +149,14 @@ body {
     box-shadow: var(--shadow-outline);
     display: flex;
     justify-content: center;
+
+    &__info {
+        padding: 2px 18px;
+        font-size: 12px;
+        color: var(--filter-info);
+        border: none;
+        background-color: transparent;
+    }
 }
 
 .filter__btn {
@@ -164,37 +171,6 @@ body {
 .filters__info:focus {
     color: hsl(220, 98%, 61%); 
 }
-
-.filters__info {
-    padding: 2px 18px;
-    font-size: 12px;
-    color: var(--filter-info);
-    border: none;
-    background-color: transparent;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // CHECKBOX STYLES
@@ -253,4 +229,54 @@ body {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+
+@media screen and (min-width: 376px) {
+
+    body {
+        max-width: 1444px;
+    }
+    
+    .app {
+        background-image: var(--bg-image);
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        &__elements {
+            width: 40%;
+            align-self: center;
+        }
+    }
+
+    header {
+        width: 40%;
+        align-self: center;
+    }
+
+    .filters {
+
+        &__info {
+            margin: 0;
+            font-size: 12px;
+            padding: 18px;
+        }
+
+        &__button_group {
+            display: flex;
+            align-items: center;
+        }    
+    }
+
+    .filter__btn {
+        font-size: 12px;
+    }
+
+    .clear__btn {
+        padding-right: 18px;
+    }
+
+    
+
 }

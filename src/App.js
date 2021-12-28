@@ -82,7 +82,7 @@ function App(props) {
     <div className="app">
       <Header />
 
-      <section className="app_elements">
+      <section className="app__elements">
         <Form addTask={addTask} />
         <article className="list">
           <ul className="todo_list">
@@ -102,29 +102,31 @@ function App(props) {
                 </div>
               </li>
             ) : (
-              ""
+              <li>
+                <div className="inline_task">
+                  <p className="filters__info">{headingText}</p>
+                  <div className="filters__button_group">{filterList}</div>
+                  <button
+                    type="button"
+                    className="filter__btn clear__btn"
+                    aria-pressed="false"
+                    onClick={handleDeleteComplete}
+                  >
+                    Clear Complete
+                  </button>
+                </div>
+              </li>
             )}
           </ul>
         </article>
 
-        <article className="filters">
-          {breakpoints[currentBreakpoint] < breakpoints.mobileLandscape ? (
+        {breakpoints[currentBreakpoint] < breakpoints.mobileLandscape ? (
+          <article className="filters">
             <div className="filters__button_group">{filterList}</div>
-          ) : (
-            <div>
-              <p className="filters__info">{headingText}</p>
-              <div className="filters__button_group">{filterList}</div>
-              <button
-                type="button"
-                className="filter__btn"
-                aria-pressed="false"
-                onClick={handleDeleteComplete}
-              >
-                Clear Complete
-              </button>
-            </div>
-          )}
-        </article>
+          </article>
+        ) : (
+          ""
+        )}
       </section>
     </div>
   );

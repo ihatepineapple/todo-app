@@ -7,6 +7,9 @@
   --shadow-outline: 0px 0px 26px lightgray;
   --filter-info: hsl(236, 9%, 61%);
   --bg-image-mobile: url(../images/bg-mobile-light.jpg);
+  --bg-image: url(../images/bg-desktop-light.jpg)
+
+;
 }
 
 [data-theme="dark"] {
@@ -18,6 +21,10 @@
   --shadow-outline: 0px 0px 26px black;
   --filter-info: hsl(236, 9%, 61%);
   --bg-image-mobile: url(../images/bg-mobile-dark.jpg);
+  --bg-image: url(../images/bg-desktop-dark.jpg)
+
+
+;
 }
 
 body {
@@ -34,6 +41,12 @@ body {
   padding: 0;
   background-color: var(--bg-color);
   position: relative;
+}
+
+.app__elements {
+  position: relative;
+  margin: 18px;
+  margin-top: 0;
 }
 
 .title__container, .filters {
@@ -54,12 +67,6 @@ body {
   font-size: 28px;
   letter-spacing: 12px;
   color: white;
-}
-
-.app_elements {
-  position: relative;
-  margin: 18px;
-  margin-top: 0;
 }
 
 .input__form {
@@ -177,6 +184,14 @@ body {
           justify-content: center;
 }
 
+.filters__info {
+  padding: 2px 18px;
+  font-size: 12px;
+  color: var(--filter-info);
+  border: none;
+  background-color: transparent;
+}
+
 .filter__btn {
   border: none;
   background-color: transparent;
@@ -188,14 +203,6 @@ body {
 .filter__btn:focus,
 .filters__info:focus {
   color: #3a7bfd;
-}
-
-.filters__info {
-  padding: 2px 18px;
-  font-size: 12px;
-  color: var(--filter-info);
-  border: none;
-  background-color: transparent;
 }
 
 .cb__container {
@@ -248,5 +255,54 @@ body {
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+@media screen and (min-width: 376px) {
+  body {
+    max-width: 1444px;
+  }
+  .app {
+    background-image: var(--bg-image);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .app__elements {
+    width: 40%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  header {
+    width: 40%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .filters__info {
+    margin: 0;
+    font-size: 12px;
+    padding: 18px;
+  }
+  .filters__button_group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .filter__btn {
+    font-size: 12px;
+  }
+  .clear__btn {
+    padding-right: 18px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
