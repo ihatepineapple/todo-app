@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReactComponent as DarkModeIcon } from "../assets/icons/icon-moon.svg";
 import { ReactComponent as LightModeIcon } from "../assets/icons/icon-sun.svg";
 
 function Header() {
   const [darkMode, setDarkMode] = useState(false);
 
-  function toggleDarkMode() {
-    setDarkMode(!darkMode);
-
+  useEffect(() => {
     if (darkMode) {
       document.documentElement.setAttribute("data-theme", "dark");
     } else if (!darkMode) {
       document.documentElement.setAttribute("data-theme", "light");
     }
+  }, [darkMode]);
+
+  function toggleDarkMode() {
+    setDarkMode(!darkMode);
   }
 
   return (
